@@ -38,7 +38,6 @@ target
 *.diff
 *.patch
 *.tmp
-Dockerfile
 
 # system ignore
 .DS_Store
