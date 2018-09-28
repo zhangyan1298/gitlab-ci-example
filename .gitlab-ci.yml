@@ -80,7 +80,8 @@ docker-build:
  stage: dockerbuild
  image: openjdk:8-jre-alpine
  script:
-  - nohup java -jar public/*.jar
+  - unzip artifacts.zip
+  - ls -l
  tags:
   - ubunt-docker
  only:
