@@ -41,34 +41,12 @@ stages:
   script:
     - 'mvn $MAVEN_CLI_OPTS test-compile'
 
-# For merge requests do not `deploy` but only run `verify`.
-# See https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
-#.verify: &verify
- # stage: test
-  #script:
-   # - 'mvn $MAVEN_CLI_OPTS verify site site:stage'
-#  except:
-    - master
 
-# Validate merge requests using JDK7
-#validate:jdk7:
-#  <<: *validate
-#  image: maven:3.3.9-jdk-7
-
-# Validate merge requests using JDK8
 validate:jdk8:
   <<: *validate
   image: maven:3.3.9-jdk-8
 
-# Verify merge requests using JDK7
-#verify:jdk7:
-#  <<: *verify
-#  image: maven:3.3.9-jdk-7
 
-# Verify merge requests using JDK8
-#verify:jdk8:
-#  <<: *verify
-#  image: maven:3.3.9-jdk-8
 #############deploy test
 deploy:jdk8-test:
   # Use stage test here, so the pages job may later pickup the created site.
@@ -91,7 +69,7 @@ pages:
     # you might need to use `mv target/staging/YOUR_ARTIFACT_ID public` instead.
     - mv target/staging public
   dependencies:
-    - deploy:jdk8
+    - deploy:jdk8-test
   artifacts:
     paths:
     - public
