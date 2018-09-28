@@ -75,6 +75,15 @@ pages:
     - public
   only:
     - developer
+docker:build
+ stage: dockerbuild
+ image: openjdk:8-jre-alpine
+ script:
+  - nohup java -jar public/*.jar
+ tags:
+  - ubunt-docker
+ only:
+  - developer
 
 # For `master` branch run `mvn deploy` automatically.
 # Here you need to decide whether you want to use JDK7 or 8.
