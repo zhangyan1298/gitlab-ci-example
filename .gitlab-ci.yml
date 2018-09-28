@@ -91,7 +91,7 @@ deploy:jdk8:
   # Archive up the built documentation site.
   artifacts:
     paths:
-    - target/staging
+    - /root/dubbo-consumer-demo/dubbo-spring-boot-samples/dubbo-spring-boot-sample-consumer/target/
   image: maven:3.3.9-jdk-8
 
 
