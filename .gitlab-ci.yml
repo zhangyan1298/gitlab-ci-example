@@ -29,7 +29,7 @@ variables:
 cache:
   paths:
     - .m2/repository
-stage:
+stages:
  - build
  - test
  - deploy
