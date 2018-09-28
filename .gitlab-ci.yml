@@ -29,7 +29,10 @@ variables:
 cache:
   paths:
     - .m2/repository
-
+stage:
+ - build
+ - test
+ - deploy
 # This will only validate and compile stuff and run e.g. maven-enforcer-plugin.
 # Because some enforcer rules might check dependency convergence and class duplications
 # we use `test-compile` here instead of `validate`, so the correct classpath is picked up.
@@ -63,9 +66,9 @@ validate:jdk8:
 #  image: maven:3.3.9-jdk-7
 
 # Verify merge requests using JDK8
-verify:jdk8:
-  <<: *verify
-  image: maven:3.3.9-jdk-8
+#verify:jdk8:
+#  <<: *verify
+#  image: maven:3.3.9-jdk-8
 #############deploy test
 deploy:jdk8-test:
   # Use stage test here, so the pages job may later pickup the created site.
