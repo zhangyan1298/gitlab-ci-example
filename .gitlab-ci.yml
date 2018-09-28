@@ -43,11 +43,11 @@ stages:
 
 # For merge requests do not `deploy` but only run `verify`.
 # See https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
-.verify: &verify
-  stage: test
-  script:
-    - 'mvn $MAVEN_CLI_OPTS verify site site:stage'
-  except:
+#.verify: &verify
+ # stage: test
+  #script:
+   # - 'mvn $MAVEN_CLI_OPTS verify site site:stage'
+#  except:
     - master
 
 # Validate merge requests using JDK7
@@ -81,7 +81,7 @@ deploy:jdk8-test:
   artifacts:
     paths:
     - target/staging
-  image: maven:3.3.9-jdk-8
+  image: maven:3-jdk-8
 ######copy jar
 pages:
   image: busybox:latest
