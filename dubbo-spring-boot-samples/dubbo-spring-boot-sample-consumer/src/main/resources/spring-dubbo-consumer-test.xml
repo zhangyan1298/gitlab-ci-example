@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?> <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+
+<!-- 定义当前的应用的名称 -->
+
+<dubbo:application name="user-api-consumer" />
+
+<!-- 定义dubbo注册中心的地址 -->
+
+<dubbo:registry protocol="zookeeper" address="zookeeper://zk-2-svc:2181" />
+
+<!-- 定义dubbo所在的服务执行时暴露给客户端的端口 -->
+
+<dubbo:protocol name="dubbo" port="20891"/>
+
+<!--消费接口类 -->
+
+<dubbo:reference id="userApi" interface="cn.dp.api.UserApi" />
+
+</beans>

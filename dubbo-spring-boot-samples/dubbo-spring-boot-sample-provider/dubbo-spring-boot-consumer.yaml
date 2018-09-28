@@ -1,0 +1,40 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dubbo-spring-consumer-svc
+  labels:
+    app: dubbo-sring-consumer-svc
+spec:
+  ports:
+  - port: 12345
+    name: server
+  type: NodePort
+  selector:
+    app: dubbo-spring-consumer
+---
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: dubbo-spring-consumer
+spec:
+  replicas: 1
+  selector:
+   matchLabels:
+    app: dubbo-spring-consumer
+  template:
+    metadata:
+      labels:
+        app: dubbo-spring-consumer
+    spec:
+      nodeSelector:
+        zk: zk-3
+      containers:
+      - name: dubbo-admin-backend
+        imagePullPolicy: Always
+        image: dockeryanxiao/dubbo-spring-boot-consumer-demo:0.0.3
+        ports:
+        - containerPort: 12345
+        env:
+        - name: dubbo.registry.address
+          value: zookeeper://zk-1-svc:2181
