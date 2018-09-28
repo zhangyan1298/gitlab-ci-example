@@ -52,7 +52,7 @@ deploy:jdk8-test:
   # Use stage test here, so the pages job may later pickup the created site.
   stage: test
   script:
-    - 'mvn clean install'
+    - 'mvn clean install -Dmaven.test.skip=true -Drat.numUnapprovedLicenses=100'
   only:
     - developer
   # Archive up the built documentation site.
