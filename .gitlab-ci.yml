@@ -2,13 +2,12 @@
 # Official docker image.
 image: docker:latest
 
-services:
-  - docker:dind
+tags:
+ - ubunt-docker
 
 before_script:
   - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-  tags:
-   - ubunt-docker
+    
 build-master:
   stage: build
   script:
