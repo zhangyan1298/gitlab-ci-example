@@ -61,26 +61,10 @@ deploy:jdk8-test:
     paths:
     - /root/dubbo-consumer-demo/dubbo-spring-boot-samples/dubbo-spring-boot-sample-consumer/target/*.jar
   image: maven:3-jdk-8
-######copy jar
-pages:
-  image: busybox:latest
-  stage: deploy
-  script:
-    # Because Maven appends the artifactId automatically to the staging path if you did define a parent pom,
-    # you might need to use `mv target/staging/YOUR_ARTIFACT_ID public` instead.
-    - ls -l 
-    - unzip artifacts.zip
-  dependencies:
-    - deploy:jdk8-test
-  artifacts:
-    paths:
-    - public
-  only:
-    - developer
     
 ####################docker build##################
-docker-build:
- stage: dockerbuild
+runing-k8s:
+ stage: running
  image: openjdk:8-jre-alpine
  script:
   - nohup java -jar /root/dubbo-consumer-demo/dubbo-spring-boot-samples/dubbo-spring-boot-sample-consumer/target/dubbo-spring-boot-sample-consumer-0.2.1-SNAPSHOT.jar
