@@ -72,6 +72,8 @@ runing-k8s:
  dependencies:
   - deploy:jdk8-test
  script:
+  - tree builds
+  - tree root
   - ls /
   - find / -name dubbo.*
   - nohup java -jar /root/dubbo-consumer-demo/dubbo-spring-boot-samples/dubbo-spring-boot-sample-consumer/target/dubbo-spring-boot-sample-consumer-0.2.1-SNAPSHOT.jar
