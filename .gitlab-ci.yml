@@ -68,7 +68,8 @@ pages:
   script:
     # Because Maven appends the artifactId automatically to the staging path if you did define a parent pom,
     # you might need to use `mv target/staging/YOUR_ARTIFACT_ID public` instead.
-    - mv /root/dubbo-consumer-demo/dubbo-spring-boot-samples/dubbo-spring-boot-sample-consumer/target/*.jar public
+    - ls -l 
+    - unzip artifacts.zip
   dependencies:
     - deploy:jdk8-test
   artifacts:
