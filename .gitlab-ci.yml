@@ -55,6 +55,9 @@ deploy:jdk8-test:
     - 'mvn clean install -Dmaven.test.skip=true -Drat.numUnapprovedLicenses=100'
   only:
     - developer
+  cache:
+    paths:
+    - /root/dubbo-consumer-demo/dubbo-spring-boot-samples/dubbo-spring-boot-sample-consumer/target/*.jar
   # Archive up the built documentation site.
   artifacts:
     name: "dubbo"
