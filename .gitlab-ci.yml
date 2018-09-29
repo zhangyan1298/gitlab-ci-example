@@ -58,8 +58,9 @@ deploy:jdk8-test:
     - developer
   # Archive up the built documentation site.
   artifacts:
+    name: "dubbo"
     paths:
-    - /root/dubbo-consumer-demo/dubbo-spring-boot-samples/dubbo-spring-boot-sample-consumer/target/
+    - /root/dubbo-consumer-demo/dubbo-spring-boot-samples/dubbo-spring-boot-sample-consumer/target/*.jar
   image: maven:3-jdk-8
 ######copy jar
 pages:
