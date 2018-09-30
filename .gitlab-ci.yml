@@ -68,6 +68,8 @@ stages:
 validate:jdk8:
   <<: *validate
   image: maven:3.3.9-jdk-8
+  tags:
+   - ubunt-docker
 
 
 #############deploy test
