@@ -93,9 +93,9 @@ dubbo-service-consumer:jdk8:
 runing-docker:buildpush:
  stage: running
  script:
-  - sudo  docker build -t dockeryanxiao/dubbo-comsumer-test:$CI_COMMIT_REF_NAME .
+  - ssh gitlab-runner@gke0cluster-1 "sudo  docker build -t dockeryanxiao/dubbo-comsumer-test:$CI_COMMIT_REF_NAME ."
  tags:
-  - ubunt-shell-2
+  - ubunt-docker
  only:
   - developer
 
