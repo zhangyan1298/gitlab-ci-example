@@ -36,8 +36,7 @@ before_script:
   # instead.
   # - mkdir -p ~/.ssh
   # - '[[ -f /.dockerenv ]] && echo "$SSH_SERVER_HOSTKEYS" > ~/.ssh/known_hosts'
-  ##docker login
-  - docker login -u ${CI_REGISTRY_USER} -p ${CI_REGISTRY_PASSWORD}
+ 
 
 
 variables:
@@ -95,6 +94,8 @@ dubbo-service-consumer:jdk8:
 runing-docker:buildpush:
  stage: running
  script:
+  ##docker login
+  - ssh gitlab-runner@gke-cluster-1 "sudo docker login -u ${CI_REGISTRY_USER} -p ${CI_REGISTRY_PASSWORD}"
   - scp Dockerfile gitlab-runner@gke-cluster-1:/home/gitlab-runner
   - ssh gitlab-runner@gke-cluster-1 "sudo  docker build -t dockeryanxiao/dubbo-consumer-test:$CI_COMMIT_REF_NAME ."
   - ssh gitlab-runner@gke-cluster-1 "sudo docker push dockeryanxiao/dubbo-consumer-test:$CI_COMMIT_REF_NAME"
