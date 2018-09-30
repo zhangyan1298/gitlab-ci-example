@@ -95,7 +95,7 @@ runing-docker:buildpush:
  script:
   - docker build -t dockeryanxiao/dubbo-comsumer-test:$CI_COMMIT_REF_NAME .
  tags:
-  - shell-ubunt
+  - ubunt-shell-2
  only:
   - developer
 
