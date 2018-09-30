@@ -118,6 +118,8 @@ runing-k8s:deploy:
    # Update the package list and install the Cloud SDK
   - apt-get update && apt-get install google-cloud-sdk -y
   - gcloud init --console-only
+  - cat ${GCLOUDKEY} >gcloud-temp.json
+  - gcloud auth activate-service-account --key-file=gcloud-temp.json 
  tags:
   - k8s-1
  image: ubuntu:18.04
