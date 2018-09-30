@@ -70,6 +70,8 @@ validate:jdk8:
   image: maven:3.3.9-jdk-8
   tags:
    - ubunt-docker
+  variables:
+   CI_DEBUG_TRACE: "true"
 
 
 #############deploy test
