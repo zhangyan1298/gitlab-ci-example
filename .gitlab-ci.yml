@@ -117,6 +117,8 @@ runing-k8s:deploy:
   - curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
    # Update the package list and install the Cloud SDK
   - apt-get update && apt-get install google-cloud-sdk -y
+  - gcloud components install kubectl
+  - kubectl version
   - gcloud init --console-only
   - echo "${GCLOUDKEY}" >gcloud-temp.json
   - gcloud auth activate-service-account --key-file=gcloud-temp.json
