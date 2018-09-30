@@ -82,6 +82,7 @@ dubbo-service-consumer:jdk8:
     - pwd
     - 'mvn clean install -Dmaven.test.skip=true -Drat.numUnapprovedLicenses=100'
     - scp $(ls dubbo-spring-boot-samples/dubbo-spring-boot-sample-consumer/target/*.jar|egrep "*(SNAPSHOT|RELEASE).jar") gitlab-runner@gke-cluster-1:/home/gitlab-runner/dubbo-consumer-test.jar
+    - ssh gitlab-runner@gke-cluster-1 "sudo systemctl restart dubbo-consumer@test"
   image: maven:3-jdk-8
   tags: 
    - ubunt-docker
