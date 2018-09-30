@@ -82,15 +82,11 @@ dubbo-service-consumer:jdk8:
     - pwd
     - 'mvn clean install -Dmaven.test.skip=true -Drat.numUnapprovedLicenses=100'
     - scp $(ls /root/dubbo-consumer-demo/dubbo-spring-boot-samples/dubbo-spring-boot-sample-consumer/target/*.jar|egrep "*(SNAPSHOT|RELEASE).jar") gitlab-runner@gke-cluster-1:/home/gitlab-runner/dubbo-consumer-test.jar
-  only:
-    - developer
-  # Archive up the built documentation site.
-  artifacts:
-    name: "dubbo"
-    paths:
-    - /root/dubbo-consumer-demo/dubbo-spring-boot-samples/dubbo-spring-boot-sample-consumer/target/*.jar
   image: maven:3-jdk-8
-  tags: ubunt-docker
+  tags: 
+   - ubunt-docker
+  only:
+   - developer
     
 ####################docker build##################
 runing-k8s:jdk8:
