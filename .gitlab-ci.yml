@@ -90,13 +90,12 @@ dubbo-service-consumer:jdk8:
    - developer
     
 ####################docker build##################
-runing-k8s:jdk8:
+runing-docker:buildpush:
  stage: running
- image: openjdk:8-jre-alpine
  script:
-  - nohup java -jar /dubbo-spring-boot-samples/dubbo-spring-boot-sample-consumer/target/dubbo-spring-boot-sample-consumer-0.2.1-SNAPSHOT.jar
+  - docker build -t dockeryanxiao/dubbo-comsumer-test:$CI_COMMIT_REF_NAME .
  tags:
-  - ubunt-docker
+  - shell-ubunt
  only:
   - developer
 
