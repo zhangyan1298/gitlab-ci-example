@@ -123,7 +123,7 @@ runing-k8s:deploy:
   - gcloud init --console-only
   - echo "${GCLOUDKEY}" >gcloud-temp.json
   - gcloud auth activate-service-account --key-file=gcloud-temp.json
-  - gcloud auth list
+  - gcloud container clusters get-credentials cluster-1 --zone us-central1-a --project nimble-sylph-214302
   - kubectl get node
  tags:
   - k8s-1
