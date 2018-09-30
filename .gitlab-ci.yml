@@ -118,6 +118,6 @@ runing-k8s:deploy:
   - sudo apt-get update && sudo apt-get install google-cloud-sdk
  tags:
   - k8s-1
- image: ubunt
+ image: ubuntu
 
 
