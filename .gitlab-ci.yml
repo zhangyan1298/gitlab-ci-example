@@ -104,6 +104,7 @@ runing-docker:buildpush:
  only:
   - developer
  image: maven:3-jdk-8
+ when: manual
  
 runing-k8s:deploy:
  stage: deploy-k8s
