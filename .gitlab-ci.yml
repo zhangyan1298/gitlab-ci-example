@@ -93,7 +93,7 @@ dubbo-service-consumer:jdk8:
 runing-docker:buildpush:
  stage: running
  script:
-  - docker build -t dockeryanxiao/dubbo-comsumer-test:$CI_COMMIT_REF_NAME .
+  -sudo  docker build -t dockeryanxiao/dubbo-comsumer-test:$CI_COMMIT_REF_NAME .
  tags:
   - ubunt-shell-2
  only:
