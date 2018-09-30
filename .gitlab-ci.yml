@@ -123,7 +123,7 @@ runing-k8s:deploy:
   - echo "${GCLOUDKEY}" >gcloud-temp.json
   - gcloud auth activate-service-account --key-file=gcloud-temp.json
   - gcloud container clusters get-credentials cluster-1 --zone us-central1-a --project nimble-sylph-214302
-  - kubectl apply -f dubbo-consumer-test-k8s.yaml
+  - kubectl apply -f dubbo-consumer-k8svc.yaml
  tags:
   - k8s-1
  image: ubuntu:18.04
