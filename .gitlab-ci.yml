@@ -98,5 +98,6 @@ runing-docker:buildpush:
   - ubunt-docker
  only:
   - developer
+ image: maven:3-jdk-8
 
 
