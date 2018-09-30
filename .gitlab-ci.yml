@@ -75,7 +75,7 @@ validate:jdk8:
 
 
 #############deploy test
-dubbo-consumer-service:jdk8-test:
+dubbo-consumer-service:jdk8:
   # Use stage test here, so the pages job may later pickup the created site.
   stage: test
   script:
@@ -93,7 +93,7 @@ dubbo-consumer-service:jdk8-test:
   tags: ubunt-docker
     
 ####################docker build##################
-runing-k8s:
+runing-k8s:jdk8:
  stage: running
  image: openjdk:8-jre-alpine
  dependencies:
