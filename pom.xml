@@ -36,6 +36,14 @@
     <name>Dubbo Spring Boot Project</name>
     <description>Dubbo Spring Boot Project</description>
     <url>https://github.com/apache/incubator-dubbo-spring-boot-project</url>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-config</artifactId>
+</dependency>
 
     <modules>
         <module>dubbo-spring-boot-parent</module>
