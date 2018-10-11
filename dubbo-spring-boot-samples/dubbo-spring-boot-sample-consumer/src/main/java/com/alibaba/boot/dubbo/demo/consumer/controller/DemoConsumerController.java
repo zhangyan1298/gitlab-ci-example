@@ -33,7 +33,7 @@ public class DemoConsumerController {
 
     @Reference(version = "${demo.service.version}",
             application = "${dubbo.application.id}",
-            url = "dubbo://zk-1-svc:2181")
+            url = "dubbo://localhost:12345")
     private DemoService demoService;
 
     @RequestMapping("/sayHello")
