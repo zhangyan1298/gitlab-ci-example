@@ -6,7 +6,7 @@
 
 <!-- 定义dubbo注册中心的地址 -->
 
-<dubbo:registry protocol="zookeeper" address="zookeeper://zk-2-svc:2181" />
+<dubbo:registry id="reg1" protocol="zookeeper" address="zookeeper://zk-1-svc:2181" />
 
 <!-- 定义dubbo所在的服务执行时暴露给客户端的端口 -->
 
