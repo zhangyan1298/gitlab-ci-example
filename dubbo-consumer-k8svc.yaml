@@ -35,6 +35,6 @@ spec:
         image: dockeryanxiao/dubbo-consumer-test:developer
         ports:
         - containerPort: 12345
-        env:
-        - name: dubbo.registry.address
-          value: zookeeper://zk-2-svc:2181
+#        env:
+#        - name: dubbo.registry.address
+#          value: zookeeper://zk-2-svc:2181
