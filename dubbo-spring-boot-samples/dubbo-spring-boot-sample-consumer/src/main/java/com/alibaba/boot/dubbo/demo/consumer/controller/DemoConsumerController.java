@@ -32,10 +32,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoConsumerController {
 
     @Reference(version = "${demo.service.version}",
-            application = "${dubbo.application.id}",
-            protocol = "${dubbo.protocol.id}",
-            port = "${dubbo.protocol.port}")
-
+            application = "${dubbo.application.id}")
+            
     private DemoService demoService;
 
     @RequestMapping("/sayHello")
