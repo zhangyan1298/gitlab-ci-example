@@ -33,6 +33,9 @@ public class DemoConsumerController {
 
     @Reference(version = "${demo.service.version}",
             application = "${dubbo.application.id}")
+            protocol = "${dubbo.protocol.id}"
+            port = "${dubbo.protocol.port}"
+
     private DemoService demoService;
 
     @RequestMapping("/sayHello")
